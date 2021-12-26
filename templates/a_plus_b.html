@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h4>A + B</h4>
+<form action="" method="post">
+  <label for="a">A:</label><br />
+  <input type="text" id="a" name="a" value="{{ a }}"><br />
+  <label for="b">B:</label><br />
+  <input type="text" id="b" name="b" value="{{ b }}" /><br />
+  <input class="btn btn-primary" type="submit" value="Submit" />
+</form>
+{% if flag %}
+<h4 class="result">{{ a }} + {{ b }} = {{ sum }}</h4>
+{% endif %}
+{% endblock %}
+
+{% block script %}
+{% endblock %}

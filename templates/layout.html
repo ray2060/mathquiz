@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>数学计算题生成器</title>
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/main.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container-fluid">
+  <div class="row header">
+    <div class="col-sm-12 col-md-8 col-md-offset-2">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">数学计算题生成器</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/a_plus_b">A + B</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row body">
+    <div class="col-sm-12 col-md-8 col-md-offset-2">
+      {% block body %}{% endblock %}
+    </div>
+  </div>
+  <div class="row footer">
+    <div class="col-sm-12 col-md-8 col-md-offset-2 statement">
+      <hr />
+      &copy;2021 Ray Hu <a href="https://r.pythoner.work/" target="_blank">https://r.pythoner.work/</a>
+    </div>
+    <div class="col-sm-12 col-md-8 col-md-offset-2">
+      <img id="google-cloud" src="/static/images/cloud-logo.svg" alt="Powered by Google Cloud"/>
+    </div>
+  </div>
+  </div>
+  <script src="/static/js/jquery-1.12.4.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  {% block script %}{% endblock %}
+</body>
+</html>

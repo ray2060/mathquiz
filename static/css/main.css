@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+body { padding:0; background:#c0deed url('../images/bg-clouds.png') repeat-x; font-family:微软雅黑, Calibri; font-size:1.5em; color:#555; }
+img { border:0; }
+img.logo { display:inline; height:40px; }
+img.channel { width:280px; }
+input { margin:2px 0; padding:2px; border:1px solid #555; }
+input.btn { margin:10px 0; }
+select { margin:2px 0; padding:1px 2px; border:1px solid #555; }
+textarea { margin:2px 0; padding:2px; border:1px solid #555; width:600px; height:360px; overflow:auto; font-family:Courier New, Monospace; }
+pre { margin:0; padding:0; font-family:Courier New, Monospace; }
+hr { height:1px; border-color:#555; }
+a { color:#555; }
+
+ol { margin:10px 24px; padding:0 }
+
+.header { padding:20px 0; }
+.body { min-height:200px; }
+.footer { padding:20px 0; }
+.navbar-brand { padding:5px 0; font-size:2em; font-weight:bold; }
+.nav li a:focus, .nav li a:hover { background-color:transparent; }
+.error { color:#f00; }
+.result { margin:20px 0; }
+.statement { padding-bottom:20px; }
+
+.parent { display:table; table-layout:fixed; width:100%; }
+.child { display:table-cell; vertical-align:middle; float:none; }
+.placeholder { width:0; height:300px; padding:0; }
+
+#google-cloud { width:181px; height:28px; }
