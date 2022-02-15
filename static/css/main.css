@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-body { padding:0; background:#c0deed url('../images/bg-clouds.png') repeat-x; font-family:微软雅黑, Calibri; font-size:1.5em; color:#555; }
+body { padding:0; background:LemonChiffon; font-family:微软雅黑, Calibri; font-size:1.5em; color:#555; }
 img { border:0; }
 img.logo { display:inline; height:40px; }
 img.channel { width:280px; }
@@ -27,4 +27,5 @@ ol { margin:10px 24px; padding:0 }
 .child { display:table-cell; vertical-align:middle; float:none; }
 .placeholder { width:0; height:300px; padding:0; }
 
+#navbar { }
 #google-cloud { width:181px; height:28px; }
