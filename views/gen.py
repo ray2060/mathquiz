@@ -25,21 +25,12 @@ class GenView(MethodView):
 
 
 
-
-if __name__ == '__main__':
-    print_title('A Simple Math Quiz Generator')
-
     groups = 0
     tasks = []
     negative = False
 
-    path = sys.argv[0][:sys.argv[0].rfind('\\') + 1]
-    cf = f'{path}{CONFIG_FILE}'
-    if not os.path.exists(cf):
-        sys.exit(f'Configuration file not found: {cf}')
-    cp = configparser.ConfigParser()
-    try:
-        cp.read(cf, encoding='utf-8')
+
+
         groups = int(cp.get('SYSTEM', 'GROUPS'))
         for t in cp.get('SYSTEM', 'TASKS').split('|'):
             results = get_choices(cp.get(t, 'TEMPLATES'))
@@ -53,26 +44,25 @@ if __name__ == '__main__':
                     'blank': int(cp.get(t, 'BLANK'))
                 }
             tasks.append(task)
-    except Exception as e:
-        sys.exit(f'Exception in loading {cf}: {e}')
 
-    quizzes = []
-    for i in range(groups):
-        print_title(f'GROUP {i + 1}')
-        o = 0
-        for j in range(len(tasks)):
-            task = tasks[j]
-            for k in range(task['num']):
-                template = random.choices(task['templates'], \
-                        weights=task['weights'])[0]
-                quiz = Quiz(task['negative'], task['divide_exactly'], \
-                        task['quotient_zero'])
-                quiz.get_quiz(template)
-                while quiz in quizzes:
+    def _get_quizzes(self):
+        ret = []
+        for i in range(groups):
+            print_title(f'GROUP {i + 1}')
+            o = 0
+            for j in range(len(tasks)):
+                task = tasks[j]
+                for k in range(task['num']):
+                    template = random.choices(task['templates'], \
+                            weights=task['weights'])[0]
+                    quiz = Quiz(task['negative'], task['divide_exactly'], \
+                            task['quotient_zero'])
                     quiz.get_quiz(template)
-                o += 1
-                print(f'{o:2d}.  {quiz}')
-                for l in range(task['blank']):
-                    print('')
-                quizzes.append(quiz)
-        print('')
+                    while quiz in ret:
+                        quiz.get_quiz(template)
+                    o += 1
+                    print(f'{o:2d}.  {quiz}')
+                    for l in range(task['blank']):
+                        print('')
+                    ret.append(quiz)
+        return ret
